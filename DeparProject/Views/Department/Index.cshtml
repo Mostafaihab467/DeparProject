@@ -1,0 +1,33 @@
+﻿ @model IEnumerable<Department>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+
+    <h2>Departments</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Logo</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var department in Model)
+            {
+                <tr>
+                    <td>@department.Name</td>
+                    <td><img src="@department.Logo" alt="Logo" width="50" height="50" /></td>
+                    <td>
+                        <a href="@Url.Action("Details", new { id = department.ID })">View</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="@Url.Action("Create")" class="btn btn-primary">Create New Department</a>
+
+
+}

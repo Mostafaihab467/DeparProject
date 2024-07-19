@@ -1,0 +1,33 @@
+﻿@model Department
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+    <h2>Create Department</h2>
+
+    <form asp-action="Create" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Logo" class="control-label"></label>
+            <input asp-for="Logo" class="form-control" />
+            <span asp-validation-for="Logo" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ParentDepartmentId" class="control-label">Parent Department</label>
+            <select asp-for="ParentDepartmentId" class="form-control" asp-items="ViewBag.Departments">
+                <option value="">None</option>
+            </select>
+            <span asp-validation-for="ParentDepartmentId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </form>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>
+
+
